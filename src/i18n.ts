@@ -55,6 +55,9 @@ type UiStrings = {
   emptyTitle: string
   emptyBody: string
   footerTagline: string
+  cookieBody: string
+  cookieAccept: string
+  cookieReject: string
 }
 
 export const ui: Record<Locale, UiStrings> = {
@@ -83,6 +86,9 @@ export const ui: Record<Locale, UiStrings> = {
     emptyTitle: 'A missão ainda está escondida.',
     emptyBody: 'Configura o teu nível de disponibilidade e carrega no botão.',
     footerTagline: 'Sem contas · sem produtividade tóxica · só curiosidade',
+    cookieBody: 'Uso o Google Analytics para perceber quantas pessoas visitam este projeto. Aceitas cookies analíticos?',
+    cookieAccept: 'Aceitar',
+    cookieReject: 'Recusar',
   },
   en: {
     brand: 'SideQuest',
@@ -109,6 +115,9 @@ export const ui: Record<Locale, UiStrings> = {
     emptyTitle: 'The mission is still hidden.',
     emptyBody: 'Set your availability level and hit the button.',
     footerTagline: 'No accounts · no toxic productivity · just curiosity',
+    cookieBody: 'I use Google Analytics to understand how many people visit this project. Do you accept analytics cookies?',
+    cookieAccept: 'Accept',
+    cookieReject: 'Reject',
   },
   de: {
     brand: 'SideQuest',
@@ -135,5 +144,8 @@ export const ui: Record<Locale, UiStrings> = {
     emptyTitle: 'Die Mission ist noch versteckt.',
     emptyBody: 'Stelle dein Verfügbarkeitslevel ein und drücke den Knopf.',
     footerTagline: 'Keine Konten · keine toxische Produktivität · nur Neugier',
+    cookieBody: 'Ich verwende Google Analytics, um zu verstehen, wie viele Menschen dieses Projekt besuchen. Akzeptierst du Analyse-Cookies?',
+    cookieAccept: 'Akzeptieren',
+    cookieReject: 'Ablehnen',
   },
 }

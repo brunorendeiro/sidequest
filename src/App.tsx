@@ -1,6 +1,8 @@
 import { Fragment, useEffect, useMemo, useState } from 'react'
 import { getQuestText, questList, type QuestBase, type Time } from './data/quests'
 import { detectLocale, energyLabels, locales, modeLabels, ui, type EnergyKey, type Locale, type ModeKey } from './i18n'
+import { getStoredConsent, loadAnalytics } from './analytics'
+import CookieConsent from './CookieConsent'
 
 const readCompleted = () => {
   try {
@@ -24,6 +26,10 @@ export default function App() {
     window.localStorage.setItem('sidequest-locale', locale)
     document.documentElement.setAttribute('lang', locale)
   }, [locale])
+
+  useEffect(() => {
+    if (getStoredConsent() === 'granted') loadAnalytics()
+  }, [])
 
   const available = useMemo(
     () => questList.filter(item => item.time <= time && item.energy.includes(energy) && item.mode === mode),
@@ -107,6 +113,12 @@ export default function App() {
       </section>
     </main>
 
-    <footer><span>{t.brand} © {new Date().getFullYear()}</span><span>{t.footerTagline}</span></footer>
+    <footer>
+      <span>{t.brand} © {new Date().getFullYear()}</span>
+      <span>{t.footerTagline}</span>
+      <a href="https://vibe-portfolio-one.vercel.app/" target="_blank" rel="noreferrer">Created by Bruno Rendeiro</a>
+      <span className="powered-badge">⚡ Powered by AI</span>
+    </footer>
+    <CookieConsent locale={locale} />
   </div>
 }

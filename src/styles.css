@@ -85,7 +85,10 @@ legend { margin-bottom: 12px; font: 500 10px 'DM Mono'; text-transform: uppercas
 .reroll-button:hover { background: var(--paper); }
 .is-complete .quest-card { box-shadow: 13px 13px 0 var(--acid); }
 
-footer { display: flex; justify-content: space-between; padding: 26px 0 34px; border-top: 2px solid var(--ink); color: #655c52; font: 9px 'DM Mono'; text-transform: uppercase; }
+footer { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; padding: 26px 0 34px; border-top: 2px solid var(--ink); color: #655c52; font: 9px 'DM Mono'; text-transform: uppercase; }
+footer a { color: inherit; text-decoration: underline; }
+footer a:hover { color: var(--ink); }
+.powered-badge { font: 9px 'DM Mono'; }
 
 @media (max-width: 800px) {
   .hero { grid-template-columns: 1fr; }
@@ -109,6 +112,13 @@ footer { display: flex; justify-content: space-between; padding: 26px 0 34px; bo
   .quest-actions { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 10px; }
 }
+
+.cookie-consent { position: fixed; z-index: 50; left: 20px; right: 20px; bottom: 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; max-width: 640px; margin: 0 auto; padding: 18px 20px; border: 2px solid var(--ink); background: white; box-shadow: 6px 6px 0 var(--ink); }
+.cookie-consent p { flex: 1 1 260px; margin: 0; font-size: 13px; }
+.cookie-actions { display: flex; gap: 10px; }
+.cookie-actions button { padding: 9px 16px; border: 2px solid var(--ink); font-weight: 700; font-size: 13px; cursor: pointer; }
+.cookie-reject { background: white; color: var(--ink); }
+.cookie-accept { background: var(--acid); color: var(--ink); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
