@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useMemo, useState } from 'react'
 import { getQuestText, questList, type QuestBase, type Time } from './data/quests'
 import { detectLocale, energyLabels, locales, modeLabels, ui, type EnergyKey, type Locale, type ModeKey } from './i18n'
-import { getStoredConsent, loadAnalytics } from './analytics'
+import { getStoredConsent, loadAnalytics, loadAds } from './analytics'
 import CookieConsent from './CookieConsent'
 
 const readCompleted = () => {
@@ -28,7 +28,10 @@ export default function App() {
   }, [locale])
 
   useEffect(() => {
-    if (getStoredConsent() === 'granted') loadAnalytics()
+    if (getStoredConsent() === 'granted') {
+      loadAnalytics()
+      loadAds()
+    }
   }, [])
 
   const available = useMemo(
