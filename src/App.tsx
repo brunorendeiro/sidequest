@@ -3,6 +3,7 @@ import { getQuestText, questList, type QuestBase, type Time } from './data/quest
 import { detectLocale, energyLabels, locales, modeLabels, ui, type EnergyKey, type Locale, type ModeKey } from './i18n'
 import { getStoredConsent, loadAnalytics, loadAds } from './analytics'
 import CookieConsent from './CookieConsent'
+import AdSlot from './AdSlot'
 
 const readCompleted = () => {
   try {
@@ -112,6 +113,7 @@ export default function App() {
             <button type="button" className="complete-button" onClick={complete} disabled={celebrating}>{celebrating ? t.completeButtonDone : t.completeButton}</button>
             <button type="button" className="reroll-button" onClick={generate}>{t.rerollButton}</button>
           </div>
+          <AdSlot locale={locale} />
         </article> : <div className="empty-quest"><span>✦</span><h2>{t.emptyTitle}</h2><p>{t.emptyBody}</p></div>}
       </section>
     </main>

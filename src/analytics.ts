@@ -40,8 +40,13 @@ export function loadAds() {
   script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4561414438757131`
   document.head.appendChild(script)
 
+  // Auto ads (enable_page_level_ads) ficam desligados: nesta app, o posicionamento
+  // automático da Google acaba por colocar anúncios no ecrã do gerador de quests,
+  // que tem pouco texto e foi a causa da rejeição original do AdSense. Preferimos
+  // uma unidade de anúncio manual (ver AdSlot.tsx), colocada apenas onde há
+  // conteúdo real (o cartão de resultado da quest).
   window.adsbygoogle = window.adsbygoogle || []
-  window.adsbygoogle.push({ google_ad_client: 'ca-pub-4561414438757131', enable_page_level_ads: true })
+  window.adsbygoogle.push({ google_ad_client: 'ca-pub-4561414438757131' })
 }
 
 export function setConsent(value: Consent) {
